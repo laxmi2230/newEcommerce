@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../Images/logo.png";
 import { Icon } from "react-icons-kit";
 import { shoppingCart } from "react-icons-kit/feather/shoppingCart";
 import { auth } from "../Config/Config";
@@ -18,41 +17,17 @@ export const Navbar = ({ user, totalProducts }) => {
   };
 
   return (
-    <div
-      className="navbar"
-      style={{
-        padding: "2rem",
-        borderRadius: "0rem 0rem 1rem 1rem "
-      }}
-    >
-      <div
-        className="leftside"
-        style={{ display: "flex", alignItems: "left", marginLeft: "10rem" }}
-      >
-        <h5
-          style={{
-            backgroundColor: "white",
-            fontWeight: "800",
-            padding: "0.5rem",
-            margin: "1.5 rem",
-            borderRadius: "0.5rem",
-            borderColor: "black",
-            borderWidth: "0.2rem"
-          }}
-        >
-          Sheemo
-        </h5>
-      </div>
+    <div>
       <div className="rightside">
         {!user && (
           <>
             <div>
-              <Link className="navlink" to="signup">
+              <Link className="nav-link" to="signup">
                 SIGN UP
               </Link>
             </div>
             <div>
-              <Link className="navlink" to="login">
+              <Link className="nav-link" to="login">
                 LOGIN
               </Link>
             </div>
@@ -60,60 +35,97 @@ export const Navbar = ({ user, totalProducts }) => {
         )}
         {user && (
           <>
-            <div
-              style={{
-                backgroundColor: "black",
-                fontWeight: "800",
-                padding: "0.5rem",
-                margin: "1 rem",
-                borderRadius: "0.5rem",
-                borderColor: "black",
-                borderWidth: "0.2rem"
-              }}
-            >
-              <Link className="navlink" to="/">
-                {user}
-              </Link>
-            </div>
-            <div
-              style={{
-                backgroundColor: "green",
-                fontWeight: "800",
-                padding: "0.5rem",
-                margin: "1 rem",
-                borderRadius: "0.5rem",
-                borderColor: "black",
-                borderWidth: "0.2rem"
-              }}
-            >
-              <Link className="navlink" to="add-products">
-                ADD-PRODUCTS
-              </Link>
-            </div>
-            <div
-              className="cart-menu-btn"
-              style={{
-                backgroundColor: "black",
-                fontWeight: "800",
-                padding: "0.6rem 1rem",
-                margin: "1 rem",
-                borderRadius: "0.5rem",
-                borderColor: "black",
-                borderWidth: "0.2rem"
-              }}
-            >
-              <Link className="navlink" to="cart">
-                <Icon icon={shoppingCart} size={20} />
-              </Link>
-              <span className="cart-indicator">{totalProducts}</span>
-            </div>
-            <div
-              className="btn btn-danger btn-md"
-              onClick={handleLogout}
-              style={{ backgroundColor: "" }}
-            >
-              LOGOUT
-            </div>
+            <nav class="navbar navbar-expand-lg navbar-dark white-color">
+              <h5
+                class="navbar-brand"
+                style={{
+                  fontWeight: "800"
+                }}
+              >
+                Sheemo
+              </h5>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#basicExampleNav"
+                aria-controls="basicExampleNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="basicExampleNav">
+                <ul class="navbar-nav  ms-auto ">
+                  <li className="nav-item">
+                    <div>
+                      <Link
+                        className="nav-link"
+                        to="/"
+                        style={{ color: "white", margin: "0.25rem 0.25rem" }}
+                      >
+                        Hello, {user}
+                      </Link>
+                    </div>
+                  </li>
+                  <li class="nav-item active">
+                    <div>
+                      <Link
+                        className="nav-link"
+                        to="add-products"
+                        style={{
+                          backgroundColor: "green",
+                          padding: "0.5rem",
+                          margin: "0.25rem 0.25rem",
+                          borderRadius: "0.4rem",
+                          color: "white"
+                        }}
+                      >
+                        ADD-PRODUCTS
+                      </Link>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <div className="cart-menu-btn">
+                      <Link
+                        className="nav-link"
+                        to="cart"
+                        style={{ color: "white" }}
+                        style={{
+                          backgroundColor: "grey",
+                          padding: "0.5rem",
+                          margin: "0.25rem 0.25rem",
+                          borderRadius: "0.4rem",
+                          color: "white"
+                        }}
+                      >
+                        Cart <Icon icon={shoppingCart} size={20} />
+                        <span style={{ color: "white", margin: "0.5rem" }}>
+                          : {totalProducts}
+                        </span>
+                      </Link>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <div
+                      className="nav-link "
+                      onClick={handleLogout}
+                      style={{
+                        backgroundColor: "red",
+                        padding: "0.5rem",
+                        margin: "0.25rem 0.25rem",
+                        borderRadius: "0.4rem",
+                        color: "white"
+                      }}
+                    >
+                      LOGOUT
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </>
         )}
       </div>

@@ -44,7 +44,6 @@
 
 /* navbar */
 .navbar {
-  position: sticky;
   align-self: flex-start;
   top: 0;
   width: 100%;
@@ -52,7 +51,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #FF007F
+  background-color: #FF007F;
+  color: white
 }
 
 @media (max-width: 450px) {
