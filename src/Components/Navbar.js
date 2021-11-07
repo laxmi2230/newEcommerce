@@ -21,16 +21,51 @@ export const Navbar = ({ user, totalProducts }) => {
       <div className="rightside">
         {!user && (
           <>
-            <div>
-              <Link className="nav-link" to="signup">
-                SIGN UP
-              </Link>
-            </div>
-            <div>
-              <Link className="nav-link" to="login">
-                LOGIN
-              </Link>
-            </div>
+            <nav class="navbar navbar-expand-lg navbar-dark white-color">
+              <p
+                class="navbar-brand"
+                style={{
+                  fontWeight: "800"
+                }}
+              >
+                Sheemo
+              </p>
+
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#basicExampleNav"
+                aria-controls="basicExampleNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="basicExampleNav">
+                <ul class="navbar-nav  ms-auto ">
+                  <li class="nav-item ">
+                    <Link
+                      className="nav-link"
+                      to="signup"
+                      style={{ color: "white", margin: "0.25rem 0.25rem" }}
+                    >
+                      SIGN UP
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link
+                      className="nav-link"
+                      to="login"
+                      style={{ color: "white", margin: "0.25rem 0.25rem" }}
+                    >
+                      LOGIN
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </>
         )}
         {user && (
@@ -92,7 +127,6 @@ export const Navbar = ({ user, totalProducts }) => {
                       <Link
                         className="nav-link"
                         to="cart"
-                        style={{ color: "white" }}
                         style={{
                           backgroundColor: "grey",
                           padding: "0.5rem",
