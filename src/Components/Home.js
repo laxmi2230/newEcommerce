@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Products } from "./Products";
 import { auth, fs } from "../Config/Config";
+import Banner from "./Banner";
 
 export const Home = (props) => {
   // getting current user uid
@@ -106,6 +107,8 @@ export const Home = (props) => {
       <br></br>
       {products.length > 0 && (
         <div className="container-fluid">
+         <Banner/>
+          <br/>
           <h1 className="text-center" style={{ fontWeight: 900 }}>
             Products
           </h1>
